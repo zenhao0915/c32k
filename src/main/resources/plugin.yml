@@ -1,0 +1,5 @@
+name: CK
+version: ${project.version}
+main: niama.ck.CK
+authors: [zenhao]
+description: awa
