@@ -469,26 +469,16 @@ public class CK extends JavaPlugin implements Listener {
                             }
                         }
                     }
-                    if (block.getState() instanceof ShulkerBox) {
-                        final Location loc = e.getBlock().getLocation();
-                        final Location locfinal = new Location(e.getBlock().getWorld(), (double) loc.getBlockX(), (double) (loc.getBlockY() - 1), (double) loc.getBlockZ());
-                        final Block block2 = locfinal.getBlock();
-                        if (block2.getState() instanceof Hopper) {
-                            final ShulkerBox box = (ShulkerBox) block.getState();
-                            final ItemStack[] i = box.getInventory().getStorageContents();
-                            for (int g2 = i.length, d2 = 0; d2 < g2; ++d2) {
-                                if (i[d2] != null && i[d2].getType().equals((Object) Material.DIAMOND_SWORD)) {
-                                    final Map<Enchantment, Integer> n2 = (Map<Enchantment, Integer>) i[d2].getEnchantments();
-                                    for (final Enchantment key : n2.keySet()) {
-                                        if (n2.get(key) > key.getMaxLevel()) {
-                                            i[d2].removeEnchantment(key);
-                                            i[d2].addEnchantment(key, key.getMaxLevel());
-                                        }
-                                        if (i[d2].getAmount() > i[d2].getMaxStackSize()) {
-                                            i[d2].setAmount(i[d2].getMaxStackSize());
-                                        }
-                                    }
-                                }
+
+                    if (i[d2] != null && i[d2].getType().equals((Object) Material.GOLD_SWORD)) {
+                        final Map<Enchantment, Integer> n2 = (Map<Enchantment, Integer>) i[d2].getEnchantments();
+                        for (final Enchantment key : n2.keySet()) {
+                            if (n2.get(key) > key.getMaxLevel()) {
+                                i[d2].removeEnchantment(key);
+                                i[d2].addEnchantment(key, key.getMaxLevel());
+                            }
+                            if (i[d2].getAmount() > i[d2].getMaxStackSize()) {
+                                i[d2].setAmount(i[d2].getMaxStackSize());
                             }
                         }
                     }
